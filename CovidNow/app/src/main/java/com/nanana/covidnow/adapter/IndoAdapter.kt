@@ -38,8 +38,6 @@ class IndoAdapter( private val context: Context, private val items: List<DataInd
             containerView.setOnClickListener{
                 listener(item)
             }
-
         }
-
     }
 }
