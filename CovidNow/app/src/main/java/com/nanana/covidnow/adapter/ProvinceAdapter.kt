@@ -13,8 +13,8 @@ import kotlinx.android.synthetic.main.province_item.*
 
 class ProvinceAdapter(
     private val context: Context,
-    private val items: List<Attributes>,
-    private val listener: (Attributes) -> Unit
+    private val items: List<DataProvinceItem>,
+    private val listener: (DataProvinceItem) -> Unit
 ) : RecyclerView.Adapter<ProvinceAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(
@@ -25,17 +25,17 @@ class ProvinceAdapter(
         return items.size
     }
 
-    override fun onBindViewHolder(holder: ProvinceAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bindItem(items.get(position), listener)
     }
 
     class ViewHolder(val context: Context, override val containerView: View) :
         RecyclerView.ViewHolder(containerView), LayoutContainer {
-        fun bindItem(item: Attributes, listener: (Attributes)-> Unit){
-            name.text = "Provinsi : "+ item.provinsi
-            positif.text = "Positif : "+item.kasusPosi.toString()
-            meninggal.text = "meninggal : "+item.kasusMeni.toString()
-            sembuh.text = "sembuh : "+item.kasusSemb.toString()
+        fun bindItem(item: DataProvinceItem, listener: (DataProvinceItem)-> Unit){
+            name.text = "Provinsi : "+ item.attributes.provinsi
+            positif.text = "Positif : "+item.attributes.kasusPosi.toString()
+            meninggal.text = "meninggal : "+item.attributes.kasusMeni.toString()
+            sembuh.text = "sembuh : "+item.attributes.kasusSemb.toString()
 
             containerView.setOnClickListener{
                 listener(item)

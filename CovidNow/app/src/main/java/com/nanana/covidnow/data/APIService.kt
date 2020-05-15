@@ -9,5 +9,5 @@ interface APIService {
     fun getIndo():Call<List<DataIndoItem>>
 
     @GET("indonesia/provinsi")
-    fun getProvince():Call<List<Attributes>>
+    fun getProvince():Call<List<DataProvinceItem>>
 }
