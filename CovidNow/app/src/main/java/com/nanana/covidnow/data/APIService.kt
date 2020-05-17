@@ -12,5 +12,5 @@ interface APIService {
     fun getProvince():Call<List<DataProvinceItem>>
 
     @GET("kasus")
-    fun getKasus():Call<List<Data>>
+    fun getKasus():Call<List<DataKasus>>
 }
