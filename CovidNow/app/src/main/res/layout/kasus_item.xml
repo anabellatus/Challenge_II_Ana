@@ -2,66 +2,71 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginLeft="16dp"
     android:layout_marginTop="8dp"
-    app:cardCornerRadius="15dp"
+    android:layout_marginRight="16dp"
     android:layout_marginBottom="8dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="8dp"
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="15dp"
-            android:layout_height="130dp"
-            android:scaleType="center"
-            android:src="@drawable/id_flag" />
+            android:id="@+id/jk"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/ic_profil_black_fill" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="8dp">
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/name"
+                android:id="@+id/kode_pas"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:fontFamily="monospace"
-                android:text="@string/negara"
                 android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:fontFamily="monospace"
+                android:text="@string/kode_pasien" />
 
             <TextView
-                android:id="@+id/positif"
+                android:id="@+id/prov"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/positif"
-                android:textSize="16sp" />
+                android:textColor="@color/black"
+                android:fontFamily="monospace"
+                android:text="@string/provinsi" />
 
             <TextView
-                android:id="@+id/sembuh"
+                android:id="@+id/umur"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/sembuh"
-                android:textSize="16sp" />
+                android:textColor="@color/black"
+                android:fontFamily="monospace"
+                android:text="@string/umur" />
 
             <TextView
-                android:id="@+id/meninggal"
+                android:id="@+id/kewarganegaraan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/meninggal"
-                android:textSize="16sp" />
+                android:textColor="@color/black"
+                android:fontFamily="monospace"
+                android:text="@string/kewarganegaraan" />
 
             <TextView
-                android:id="@+id/dirawat"
+                android:id="@+id/keterangan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/dirawat"
-                android:textSize="16sp" />
+                android:textColor="@color/black"
+                android:fontFamily="monospace"
+                android:text="@string/keterangan" />
+
         </LinearLayout>
+
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

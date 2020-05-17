@@ -1,5 +1,6 @@
 package com.nanana.covidnow.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.Nullable
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.nanana.covidnow.KasusActivity
 
 import com.nanana.covidnow.R
 import com.nanana.covidnow.adapter.IndoAdapter
@@ -39,6 +41,9 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, @Nullable savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         callApiGetDataIndo()
+        bt_kasus.setOnClickListener {
+            startActivity(Intent(context, KasusActivity::class.java))
+        }
     }
 
     private fun callApiGetDataIndo() {
@@ -78,8 +83,8 @@ class HomeFragment : Fragment() {
     }
 
     private fun tampilDataIndo(dataIndo: List<DataIndoItem>) {
-        rv_indo_list.layoutManager = LinearLayoutManager(context)
-        rv_indo_list.adapter = IndoAdapter(context!!, dataIndo) {
+        rv_indo.layoutManager = LinearLayoutManager(context)
+        rv_indo.adapter = IndoAdapter(context!!, dataIndo) {
             val dataIndo = it
             tampilToast(context!!, dataIndo.name)
         }

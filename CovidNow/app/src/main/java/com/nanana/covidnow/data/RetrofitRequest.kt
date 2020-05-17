@@ -32,3 +32,14 @@ inline fun <reified T> apiRequest(okHttpClient: OkHttpClient): T {
         .build()
     return retrofit.create(T::class.java)
 }
+
+inline fun <reified T> apimathdroRequest(okHttpClient: OkHttpClient): T{
+    val gson = GsonBuilder().create()
+
+    val retrofit = Retrofit.Builder()
+        .baseUrl("https://indonesia-covid-19.mathdro.id/api/")
+        .client(okHttpClient)
+        .addConverterFactory(GsonConverterFactory.create(gson))
+        .build()
+    return retrofit.create(T::class.java)
+}

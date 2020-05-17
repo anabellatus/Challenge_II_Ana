@@ -10,4 +10,7 @@ interface APIService {
 
     @GET("indonesia/provinsi")
     fun getProvince():Call<List<DataProvinceItem>>
+
+    @GET("kasus")
+    fun getKasus():Call<List<Data>>
 }

@@ -3,4 +3,23 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home_title">COVID-19 UPDATE</string>
+    <string name="negara">Negara</string>
+    <string name="positif">Positif :</string>
+    <string name="sembuh">Sembuh :</string>
+    <string name="meninggal">Meninggal :</string>
+    <string name="dirawat">Dirawat :</string>
+    <string name="more_information">More Information</string>
+    <string name="daftar_rs_rujukan">Daftar RS \nRujukan</string>
+    <string name="daftar_kasus">Daftar Kasus</string>
+    <string name="daftar_hotline">Daftar Hotline</string>
+    <string name="gejala">Gejala</string>
+    <string name="kode_pasien">Kode Pasien :</string>
+    <string name="provinsi">Provinsi :</string>
+    <string name="umur">Umur :</string>
+    <string name="kewarganegaraan">Kewarganegaraan :</string>
+    <string name="keterangan">Keterangan :</string>
+    <string name="wni">WNI</string>
+    <string name="more_countries">More Countries .....</string>
+    <string name="update_provinsi">Update Provinsi</string>
 </resources>
