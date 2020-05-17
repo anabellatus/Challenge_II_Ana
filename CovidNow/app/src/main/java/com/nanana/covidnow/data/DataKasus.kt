@@ -5,5 +5,5 @@ import com.google.gson.annotations.SerializedName
 
 data class DataKasus(
     @SerializedName("data")
-    val data: Data
+    val data: List<Data>
 )

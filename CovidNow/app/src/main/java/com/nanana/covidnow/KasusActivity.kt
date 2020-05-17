@@ -33,41 +33,68 @@ class KasusActivity : AppCompatActivity() {
         val apiRequest = apimathdroRequest<APIService>(httpClient)
         val call = apiRequest.getKasus()
         Log.d("LOGLOG", "Before Call.enqueue")
-        call.enqueue(object : Callback<List<DataKasus>>{
-            override fun onFailure(call: Call<List<DataKasus>>, t: Throwable) {
+
+        call.enqueue(object : Callback<DataKasus>{
+            override fun onFailure(call: Call<DataKasus>, t: Throwable) {
                 dismissLoading(swipeRefreshLayout)
-                Log.d("LOGLOG", "OnFailure"+t)
+                Log.d("LOGLOG", "OnFailure"+t.message)
             }
 
-            override fun onResponse(call: Call<List<DataKasus>>, response: Response<List<DataKasus>>) {
+            override fun onResponse(call: Call<DataKasus>, response: Response<DataKasus>) {
                 dismissLoading(swipeRefreshLayout)
                 Log.d("LOGLOG", "OnResponse")
-
                 when {
                     response.isSuccessful ->
                         when {
-                            response.body()!!.size != 0 ->
-                                tampilDataKasus(response.body()!!)
+                            response.body()!!.data.size != 0 ->
+                                tampilDataKasus(response.body()!!.data)
                             else -> {
                                 tampilToast(this@KasusActivity, "Berhasil")
-                                Log.d("LOGLOG", "OnResponse Berhasil")
                             }
                         }
                     else -> {
                         tampilToast(this@KasusActivity, "Gagal")
-                        Log.d("LOGLOG", "OnResponse Gagal")
                     }
                 }
             }
 
         })
+
+//        call.enqueue(object : Callback<List<DataKasus>>{
+//            override fun onFailure(call: Call<List<DataKasus>>, t: Throwable) {
+//                dismissLoading(swipeRefreshLayout)
+//                Log.d("LOGLOG", "OnFailure"+t.message)
+//            }
+//
+//            override fun onResponse(call: Call<List<DataKasus>>, response: Response<List<DataKasus>>) {
+//                dismissLoading(swipeRefreshLayout)
+//                Log.d("LOGLOG", "OnResponse")
+//
+//                when {
+//                    response.isSuccessful ->
+//                        when {
+//                            response.body()!!.size != 0 ->
+//                                tampilDataKasus(response.body()!!)
+//                            else -> {
+//                                tampilToast(this@KasusActivity, "Berhasil")
+//                                Log.d("LOGLOG", "OnResponse Berhasil")
+//                            }
+//                        }
+//                    else -> {
+//                        tampilToast(this@KasusActivity, "Gagal")
+//                        Log.d("LOGLOG", "OnResponse Gagal")
+//                    }
+//                }
+//            }
+//
+//        })
     }
 
-    private fun tampilDataKasus(dataKasus: List<DataKasus>){
+    private fun tampilDataKasus(dataKasus: List<Data>){
         rv_kasus.layoutManager = LinearLayoutManager(this)
         rv_kasus.adapter = KasusAdapter(this, dataKasus){
             val dataKasus = it
-            tampilToast(this, dataKasus.data.kodePasien.toString())
+            tampilToast(this, dataKasus.kodePasien.toString())
         }
     }
 
