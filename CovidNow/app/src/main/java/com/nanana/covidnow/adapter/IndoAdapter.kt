@@ -30,10 +30,10 @@ class IndoAdapter( private val context: Context, private val items: List<DataInd
         RecyclerView.ViewHolder(containerView), LayoutContainer {
         fun bindItem(item: DataIndoItem, listener: (DataIndoItem)-> Unit){
             name.text = item.name
-            positif.text =   "Positif \t: "+item.positif
-            meninggal.text = "Meninggal \t: "+item.meninggal
-            sembuh.text =    "Sembuh \t: "+item.sembuh
-            dirawat.text =   "Dirawat \t: "+item.dirawat
+            positif.text =   "Positif     : "+item.positif
+            meninggal.text = "Meninggal   : "+item.meninggal
+            sembuh.text =    "Sembuh      : "+item.sembuh
+            dirawat.text =   "Dirawat     : "+item.dirawat
 
             containerView.setOnClickListener{
                 listener(item)

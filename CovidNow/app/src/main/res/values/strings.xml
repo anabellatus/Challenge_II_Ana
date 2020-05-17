@@ -21,5 +21,20 @@
     <string name="keterangan">Keterangan :</string>
     <string name="wni">WNI</string>
     <string name="more_countries">More Countries .....</string>
-    <string name="update_provinsi">Update Provinsi</string>
+    <string name="update_provinsi">Update Provinsi di \nIndonesia</string>
+
+    <string name="gejala_covid">
+        Masing-masing orang memiliki respons yang berbeda terhadap COVID-19. Sebagian besar orang yang terpapar virus ini akan mengalami gejala ringan hingga sedang dan akan pulih tanpa perlu dirawat di rumah sakit.
+        \n\nGejala yang paling umum:
+        \n- demam \n- batuk kering \n- kelelahan
+        \n\nGejala yang sedikit tidak umum:
+        \n- rasa tidak nyaman dan nyeri \n- nyeri tenggorokan \n- diare \n- konjungtivitis (mata merah) \n- sakit kepala
+        \n- hilangnya indera perasa atau penciuman \n- ruam pada kulit, atau perubahan warna pada jari tangan atau jari kaki
+        \n\nGejala serius:
+        \n- kesulitan bernapas atau sesak napas \n- nyeri dada atau rasa tertekan pada dada \n- hilangnya kemampuan berbicara atau bergerak
+        \n\nSegera cari bantuan medis jika Anda mengalami gejala \nserius. Selalu hubungi dokter atau fasilitas kesehatan yang ingin Anda tuju sebelum mengunjunginya.
+        \n\nOrang dengan gejala ringan yang dinyatakan sehat harus melakukan perawatan mandiri di rumah.
+        \n\nRata-rata gejala akan muncul 5–6 hari setelah seseorang pertama kali terinfeksi virus ini, tetapi bisa juga 14 hari setelah terinfeksi.
+    </string>
+    <string name="title_gejala">Gejala Covid-19</string>
 </resources>

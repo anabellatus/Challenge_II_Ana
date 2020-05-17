@@ -29,6 +29,7 @@ class KasusAdapter(private val context: Context, private val items: List<Data>, 
     class ViewHolder(val context: Context, override val containerView: View) :
         RecyclerView.ViewHolder(containerView), LayoutContainer {
         fun bindItem(item: Data, listener: (Data)-> Unit){
+
             if (item.jenisKelamin == 0){
                 jk.setImageResource(R.drawable.ic_woman)
             }else{
@@ -36,7 +37,7 @@ class KasusAdapter(private val context: Context, private val items: List<Data>, 
             }
 
             kode_pas.text = "Kode Pasien : "+ item.kodePasien.toString()
-            prov.text = "Provinsi : "+ item.provinsi.toString()
+            prov.text = "Kode Provinsi : "+ item.provinsi.toString()
             umur.text = "Umur : "+ item.umur.toString()
             if (item.wn == 1){
                 kewarganegaraan.text ="Kewarganegaraan : "+ context.getString(R.string.wni)
@@ -44,7 +45,11 @@ class KasusAdapter(private val context: Context, private val items: List<Data>, 
                 kewarganegaraan.text ="Kewarganegaraan : "+ item.detailWn.toString()
             }
 
-//            keterangan.text ="Keterangan : "+ item.keterangan.toString()
+            if ( item.keterangan != null ){
+                keterangan.text ="Keterangan : "+ item.keterangan
+            }else{
+                keterangan.text = "Keterangan : - "
+            }
 
             containerView.setOnClickListener{
                 listener(item)

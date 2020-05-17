@@ -13,4 +13,7 @@ interface APIService {
 
     @GET("kasus")
     fun getKasus():Call<DataKasus>
+
+    @GET("all")
+    fun getGlobal():Call<DataGlobal>
 }

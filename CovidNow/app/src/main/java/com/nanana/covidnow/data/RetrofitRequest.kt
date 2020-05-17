@@ -43,3 +43,14 @@ inline fun <reified T> apimathdroRequest(okHttpClient: OkHttpClient): T{
         .build()
     return retrofit.create(T::class.java)
 }
+
+inline fun <reified T> apiCoronaRequest(okHttpClient: OkHttpClient): T{
+    val gson = GsonBuilder().create()
+
+    val retrofit = Retrofit.Builder()
+        .baseUrl("https://corona.lmao.ninja/v2/")
+        .client(okHttpClient)
+        .addConverterFactory(GsonConverterFactory.create(gson))
+        .build()
+    return retrofit.create(T::class.java)
+}

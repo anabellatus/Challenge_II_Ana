@@ -8,19 +8,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.Nullable
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.nanana.covidnow.GejalaActivity
 import com.nanana.covidnow.KasusActivity
 
 import com.nanana.covidnow.R
 import com.nanana.covidnow.adapter.IndoAdapter
-import com.nanana.covidnow.data.APIService
-import com.nanana.covidnow.data.DataIndoItem
-import com.nanana.covidnow.data.apiRequest
-import com.nanana.covidnow.data.httpClient
+import com.nanana.covidnow.data.*
 import com.nanana.covidnow.util.dismissLoading
 import com.nanana.covidnow.util.showLoading
 import com.nanana.covidnow.util.tampilToast
 import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.indo_item.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -40,10 +39,52 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, @Nullable savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         callApiGetDataIndo()
+        callApiGetDataGlobal()
+
         bt_kasus.setOnClickListener {
             startActivity(Intent(context, KasusActivity::class.java))
         }
+
+        bt_gejala.setOnClickListener {
+            startActivity(Intent(context, GejalaActivity::class.java))
+        }
+    }
+
+    private fun callApiGetDataGlobal() {
+        showLoading(context!!, swipeRefreshLayout)
+        val httpClient = httpClient()
+        val apiRequest = apiCoronaRequest<APIService>(httpClient)
+
+        val call = apiRequest.getGlobal()
+        call.enqueue(object : Callback<DataGlobal> {
+            override fun onFailure(call: Call<DataGlobal>, t: Throwable) {
+                dismissLoading(swipeRefreshLayout)
+            }
+
+            override fun onResponse(call: Call<DataGlobal>, response: Response<DataGlobal>) {
+                dismissLoading(swipeRefreshLayout)
+
+                when {
+                    response.isSuccessful ->
+                        tampilDataGlobal(response.body()!!)
+                    else -> {
+                        tampilToast(context!!, "Gagal")
+                    }
+                }
+            }
+
+        })
+    }
+
+    private fun tampilDataGlobal(dataGlobal: DataGlobal) {
+        flag.setBackgroundResource(R.drawable.bg_left_corner)
+        name.text = "Global"
+        positif.text =   "Positif     : " + dataGlobal.cases.toString()
+        sembuh.text =    "Sembuh      : " + dataGlobal.recovered.toString()
+        meninggal.text = "Meninggal   : " + dataGlobal.deaths.toString()
+        dirawat.text =   "Dirawat     : " + dataGlobal.active.toString()
     }
 
     private fun callApiGetDataIndo() {

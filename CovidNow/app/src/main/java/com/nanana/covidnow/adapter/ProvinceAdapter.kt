@@ -32,10 +32,10 @@ class ProvinceAdapter(
     class ViewHolder(val context: Context, override val containerView: View) :
         RecyclerView.ViewHolder(containerView), LayoutContainer {
         fun bindItem(item: DataProvinceItem, listener: (DataProvinceItem)-> Unit){
-            name.text = "Provinsi : "+ item.attributes.provinsi
-            positif.text = "Positif : "+item.attributes.kasusPosi.toString()
-            meninggal.text = "meninggal : "+item.attributes.kasusMeni.toString()
-            sembuh.text = "sembuh : "+item.attributes.kasusSemb.toString()
+            name.text =      "Provinsi    : "+ item.attributes.provinsi
+            positif.text =   "Positif     : "+item.attributes.kasusPosi.toString()
+            meninggal.text = "Meninggal   : "+item.attributes.kasusMeni.toString()
+            sembuh.text =    "Sembuh      : "+item.attributes.kasusSemb.toString()
 
             containerView.setOnClickListener{
                 listener(item)
