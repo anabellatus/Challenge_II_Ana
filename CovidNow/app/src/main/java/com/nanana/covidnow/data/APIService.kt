@@ -16,4 +16,7 @@ interface APIService {
 
     @GET("all")
     fun getGlobal():Call<DataGlobal>
+
+    @GET("countries")
+    fun getCountry():Call<List<DataCountriesItem>>
 }

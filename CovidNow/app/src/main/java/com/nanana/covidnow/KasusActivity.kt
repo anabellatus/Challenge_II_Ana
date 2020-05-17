@@ -21,28 +21,22 @@ class KasusActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_kasus)
         callApiGetDataKasus()
-        Log.d("LOGLOG", "OnCreate after callApiGetData function")
     }
 
     private fun callApiGetDataKasus(){
         showLoading(this, swipeRefreshLayout)
 
-        Log.d("LOGLOG", "On callApiGetData")
-
         val httpClient = httpClient()
         val apiRequest = apimathdroRequest<APIService>(httpClient)
         val call = apiRequest.getKasus()
-        Log.d("LOGLOG", "Before Call.enqueue")
 
         call.enqueue(object : Callback<DataKasus>{
             override fun onFailure(call: Call<DataKasus>, t: Throwable) {
                 dismissLoading(swipeRefreshLayout)
-                Log.d("LOGLOG", "OnFailure"+t.message)
             }
 
             override fun onResponse(call: Call<DataKasus>, response: Response<DataKasus>) {
                 dismissLoading(swipeRefreshLayout)
-                Log.d("LOGLOG", "OnResponse")
                 when {
                     response.isSuccessful ->
                         when {
@@ -60,34 +54,6 @@ class KasusActivity : AppCompatActivity() {
 
         })
 
-//        call.enqueue(object : Callback<List<DataKasus>>{
-//            override fun onFailure(call: Call<List<DataKasus>>, t: Throwable) {
-//                dismissLoading(swipeRefreshLayout)
-//                Log.d("LOGLOG", "OnFailure"+t.message)
-//            }
-//
-//            override fun onResponse(call: Call<List<DataKasus>>, response: Response<List<DataKasus>>) {
-//                dismissLoading(swipeRefreshLayout)
-//                Log.d("LOGLOG", "OnResponse")
-//
-//                when {
-//                    response.isSuccessful ->
-//                        when {
-//                            response.body()!!.size != 0 ->
-//                                tampilDataKasus(response.body()!!)
-//                            else -> {
-//                                tampilToast(this@KasusActivity, "Berhasil")
-//                                Log.d("LOGLOG", "OnResponse Berhasil")
-//                            }
-//                        }
-//                    else -> {
-//                        tampilToast(this@KasusActivity, "Gagal")
-//                        Log.d("LOGLOG", "OnResponse Gagal")
-//                    }
-//                }
-//            }
-//
-//        })
     }
 
     private fun tampilDataKasus(dataKasus: List<Data>){

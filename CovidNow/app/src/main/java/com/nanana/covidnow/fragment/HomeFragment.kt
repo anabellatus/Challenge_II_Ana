@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.Nullable
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.nanana.covidnow.CountriesActivity
 import com.nanana.covidnow.GejalaActivity
 import com.nanana.covidnow.KasusActivity
 
@@ -49,6 +50,10 @@ class HomeFragment : Fragment() {
 
         bt_gejala.setOnClickListener {
             startActivity(Intent(context, GejalaActivity::class.java))
+        }
+
+        bt_country.setOnClickListener {
+            startActivity(Intent(context, CountriesActivity::class.java))
         }
     }
 

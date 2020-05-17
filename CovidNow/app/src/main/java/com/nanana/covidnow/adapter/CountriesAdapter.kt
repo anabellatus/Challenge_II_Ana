@@ -7,12 +7,15 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.nanana.covidnow.R
-import com.nanana.covidnow.data.DataIndoItem
+import com.nanana.covidnow.data.DataCountriesItem
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.indo_item.*
 
-class IndoAdapter( private val context: Context, private val items: List<DataIndoItem>, private val listener: (DataIndoItem) -> Unit
-) : RecyclerView.Adapter<IndoAdapter.ViewHolder>() {
+class CountriesAdapter(
+    private val context: Context,
+    private val items: List<DataCountriesItem>,
+    private val listener: (DataCountriesItem) -> Unit
+) : RecyclerView.Adapter<CountriesAdapter.ViewHolder>()  {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(
         context, LayoutInflater.from(context).inflate(R.layout.indo_item, parent, false)
@@ -28,17 +31,23 @@ class IndoAdapter( private val context: Context, private val items: List<DataInd
 
     class ViewHolder(val context: Context, override val containerView: View) :
         RecyclerView.ViewHolder(containerView), LayoutContainer {
-        fun bindItem(item: DataIndoItem, listener: (DataIndoItem)-> Unit){
-            flag.setImageResource(R.drawable.id_flag)
-            name.text = item.name
-            positif.text =   "Positif     : "+item.positif
-            meninggal.text = "Meninggal   : "+item.meninggal
-            sembuh.text =    "Sembuh      : "+item.sembuh
-            dirawat.text =   "Dirawat     : "+item.dirawat
+        fun bindItem(item: DataCountriesItem, listener: (DataCountriesItem)-> Unit){
+
+            name.text = item.country
+            positif.text =   "Positif     : " +item.cases.toString()
+            sembuh.text =    "Sembuh      : " +item.recovered.toString()
+            meninggal.text = "Meninggal   : " +item.deaths.toString()
+            dirawat.text =   "Dirawat     : " +item.active.toString()
+
+            Glide.with(context)
+                .load(item.countryInfo.flag)
+                .into(flag)
 
             containerView.setOnClickListener{
                 listener(item)
             }
         }
+
     }
+
 }
