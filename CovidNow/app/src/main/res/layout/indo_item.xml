@@ -15,7 +15,7 @@
         <ImageView
             android:id="@+id/flag"
             android:layout_width="15dp"
-            android:layout_height="130dp"
+            android:layout_height="140dp"
             android:scaleType="center"
             android:src="@drawable/bg_left_corner" />
 

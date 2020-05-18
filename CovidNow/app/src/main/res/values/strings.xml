@@ -37,4 +37,35 @@
         \n\nRata-rata gejala akan muncul 5–6 hari setelah seseorang pertama kali terinfeksi virus ini, tetapi bisa juga 14 hari setelah terinfeksi.
     </string>
     <string name="title_gejala">Gejala Covid-19</string>
+    <string name="search">Search</string>
+
+    <string name="hotline">
+        "1. Kota Depok 112 dan 119"\n
+        "2. Kabupaten Majalengka 112"\n
+        "3. Kota Sukabumi, 08001000119"\n
+        "4. Kabupaten Bandung 082118219287"\n
+        "5. Kab. Garut 0262-2802800 dan 119"\n
+        "6. Kab. Indramayu 08111333314"\n
+        "7. Kab. Kuningan 081388284346"\n
+        "8. Kabupaten Cirebon 0231 - 8800119 / 081998800119"\n
+        "9. Kabupaten Bekasi 112/119 - 021 89910039 - 08111139927 085283980119"\n
+        "10. Kota Cirebon 119"\n
+        "11. Kota Bogor 0251-8363335, 08111116093"\n
+        "12. Kab. Purwakarta 112 / 081909514472."\n
+        "13.Kab.Bogor 119 dan 112"\n
+        "14.Kab. Ciamis 119 - 081394489808 - 085314993901"\n
+        "15. Kab. Karawang 085282537355 - 119"\n
+        "16. Kab. Cianjur, call centre COVID-19 085321161119"\n
+        "17. Kota Cimahi: 08122126256 dan 081221423039"\n
+        "18. Kota Banjar : 085223344119 dan 082120370313"\n
+        "19. Kab. Pangandaran : 119/085320643695"\n
+        "20. Kab. Sumedang 119"\n
+        "21. Kab. Bandung Barat 089522434611"\n
+        "22. Kab. Tasikmalaya 119"\n
+        "23. Kota Bandung 112 dan 119."\n
+        "24. Kab. Sukabumi 0266-6243816"\n
+        "25. Kab. Cianjur 08523-1161-119"\n
+        "26.Kab.Kuningan 081388284346"\n
+        "27. Kab. Subang 081322916001 / 082115467455"
+    </string>
 </resources>

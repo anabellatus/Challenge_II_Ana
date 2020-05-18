@@ -11,8 +11,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    val title = arrayOf("Home", "Discover", "Profil")
-    val icon = arrayOf(R.drawable.ic_home_black_fill, R.drawable.ic_search_black, R.drawable.ic_profil_black_fill)
+    val title = arrayOf("Home", "Discover", "About")
+    val icon = arrayOf(R.drawable.ic_home_black_fill, R.drawable.ic_search_black, R.drawable.ic_bacteria)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

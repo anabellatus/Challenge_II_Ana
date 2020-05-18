@@ -44,14 +44,6 @@ class HomeFragment : Fragment() {
         callApiGetDataIndo()
         callApiGetDataGlobal()
 
-        bt_kasus.setOnClickListener {
-            startActivity(Intent(context, KasusActivity::class.java))
-        }
-
-        bt_gejala.setOnClickListener {
-            startActivity(Intent(context, GejalaActivity::class.java))
-        }
-
         bt_country.setOnClickListener {
             startActivity(Intent(context, CountriesActivity::class.java))
         }
