@@ -7,11 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.Nullable
-import com.nanana.covidnow.GejalaActivity
-import com.nanana.covidnow.HotlineActivity
-import com.nanana.covidnow.KasusActivity
+import com.nanana.covidnow.*
 
-import com.nanana.covidnow.R
 import kotlinx.android.synthetic.main.fragment_about.*
 
 /**
@@ -40,6 +37,10 @@ class AboutFragment : Fragment() {
 
         bt_hotline.setOnClickListener {
             startActivity(Intent(context, HotlineActivity::class.java))
+        }
+
+        bt_rs.setOnClickListener {
+            startActivity(Intent(context, RsActivity::class.java))
         }
     }
 
