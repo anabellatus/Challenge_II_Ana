@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "990718022009",
+    "firebase_url": "https://covid-now-70be6.firebaseio.com",
+    "project_id": "covid-now-70be6",
+    "storage_bucket": "covid-now-70be6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:990718022009:android:0643a48e7f228fc3f4dfa8",
+        "android_client_info": {
+          "package_name": "com.nanana.covidnow"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "990718022009-gqhtcna7g6ep0je56vgc6fvt1hmdgm4p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nanana.covidnow",
+            "certificate_hash": "3f4b475d07963a14db113ae772b5622e9a20851b"
+          }
+        },
+        {
+          "client_id": "990718022009-ok1fuhuqfeqi01qvbfab54ut8fqgo40h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdlxt0j_xKxHkNQUbAc4ZRVDGNfLwSDXg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "990718022009-ok1fuhuqfeqi01qvbfab54ut8fqgo40h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
