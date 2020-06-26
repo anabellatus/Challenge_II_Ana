@@ -11,9 +11,8 @@
         android:roundIcon="@drawable/virus"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoginActivity">
-
-        </activity>
+        <activity android:name=".AddRSActivity"></activity>
+        <activity android:name=".LoginActivity"></activity>
         <activity android:name=".RsActivity" />
         <activity android:name=".CountriesActivity" />
         <activity android:name=".GejalaActivity" />

@@ -6,6 +6,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.nanana.covidnow.fragment.DiscoverFragment
 import com.nanana.covidnow.fragment.HomeFragment
 import com.nanana.covidnow.fragment.AboutFragment
+import com.nanana.covidnow.fragment.MyFriendFragment
 
 class ViewPagerAdapter(fragmentActivity: FragmentActivity): FragmentStateAdapter(fragmentActivity) {
 
@@ -18,6 +19,7 @@ class ViewPagerAdapter(fragmentActivity: FragmentActivity): FragmentStateAdapter
     override fun createFragment(position: Int): Fragment {
         when (position){
             0 -> { return HomeFragment() }
+//            1 -> { return MyFriendFragment() }
             1 -> { return DiscoverFragment() }
             2 -> { return AboutFragment() }
             else -> {
