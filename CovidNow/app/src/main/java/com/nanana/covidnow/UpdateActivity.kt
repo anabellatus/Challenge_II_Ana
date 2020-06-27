@@ -3,17 +3,21 @@ package com.nanana.covidnow
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.viewModels
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.nanana.covidnow.data.RSModel
 import com.nanana.covidnow.util.tampilToast
+import com.nanana.covidnow.viewmodel.RSUpdateViewModel
 import kotlinx.android.synthetic.main.activity_update.*
 
 class UpdateActivity : AppCompatActivity() {
 
     private var database: DatabaseReference? = null
     private var auth: FirebaseAuth? = null
+
+    private val viewModel by viewModels<RSUpdateViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,8 +39,10 @@ class UpdateActivity : AppCompatActivity() {
                 val temanBaru = RSModel(namaBaru, alamatBaru, telpBaru, "")
                 val getUserID: String = auth!!.currentUser!!.uid.toString()
                 val getKey: String = intent.getStringExtra("getPrimaryKey").toString()
-                database!!.child(getUserID).child("Teman").child(getKey).setValue(temanBaru)
+                database!!.child(getUserID).child("Teman")
+                    .child(getKey).setValue(temanBaru)
                     .addOnCompleteListener {
+                        viewModel.updateData(temanBaru)
                         tampilToast(this@UpdateActivity, "Data Berhasil Disimpan")
                         finish()
                     }

@@ -4,11 +4,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
+import androidx.activity.viewModels
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.nanana.covidnow.data.RSModel
 import com.nanana.covidnow.util.tampilToast
+import com.nanana.covidnow.viewmodel.RSViewModel
 import kotlinx.android.synthetic.main.activity_add_r_s.*
 
 class AddRSActivity : AppCompatActivity() {
@@ -19,10 +21,14 @@ class AddRSActivity : AppCompatActivity() {
     lateinit var ref : DatabaseReference
     private var auth: FirebaseAuth? = null
 
+    private val viewModel by viewModels<RSViewModel>()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_r_s)
+
+        viewModel.init(this)
 
         ref = FirebaseDatabase.getInstance().getReference()
         auth = FirebaseAuth.getInstance()
@@ -44,6 +50,11 @@ class AddRSActivity : AppCompatActivity() {
             val teman = RSModel(getNama, getAlamat, getTelp, "")
             ref.child(getUserID).child("Teman").push().setValue(teman).addOnCompleteListener {
                 tampilToast(this, "Data Berhasil Disimpan")
+                nama.setText("")
+                alamat.setText("")
+                telp.setText("")
+                teman.key = ref.key.toString()
+                viewModel.addData(teman)
             }
 
             val intent = Intent (this, MainActivity::class.java)

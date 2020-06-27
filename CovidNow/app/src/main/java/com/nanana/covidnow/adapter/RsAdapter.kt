@@ -21,10 +21,11 @@ import kotlinx.android.synthetic.main.rs_item.*
 
 class RsAdapter(
     private val context: Context,
-    private val list: ArrayList<RSModel>
+    private var list: List<RSModel>
 ) :
     RecyclerView.Adapter<RsAdapter.ViewHolder>() {
 
+    var listener: dataListener? = null
     private var auth: FirebaseAuth? = null
     lateinit var ref: DatabaseReference
 
@@ -76,7 +77,6 @@ class RsAdapter(
         })
     }
 
-
     class ViewHolder(override val containerView: View) :
         RecyclerView.ViewHolder(containerView),
         LayoutContainer {
@@ -87,7 +87,12 @@ class RsAdapter(
         }
     }
 
-    interface dataListener {
+    fun setData(list: List<RSModel>){
+        this.list = list
+        notifyDataSetChanged()
+    }
 
+    interface dataListener {
+        fun onDeleteData(data: RSModel, position: Int)
     }
 }
