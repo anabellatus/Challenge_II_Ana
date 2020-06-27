@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.Nullable
+import com.google.firebase.auth.FirebaseAuth
 import com.nanana.covidnow.*
 
 import kotlinx.android.synthetic.main.fragment_about.*
@@ -26,6 +27,12 @@ class AboutFragment : Fragment() {
 
     override fun onViewCreated(view: View, @Nullable savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        logout.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            startActivity(Intent(activity, LoginActivity::class.java))
+            activity?.finish()
+        }
 
         bt_kasus.setOnClickListener {
             startActivity(Intent(context, KasusActivity::class.java))

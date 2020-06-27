@@ -218,4 +218,9 @@
         \nJl. Siliwangi No.1, Manokwari Barat. Telp: (0986) 215133
         \nPerlu diketahui bahwa jumlah rumah sakit bisa saja bertambah seiring meningkatnya pasien yang terinfeksi virus corona COVID-19 di berbagai provinsi dan wilayah Anda. 
     </string>
+    <string name="login">Login</string>
+    <string name="username">username</string>
+    <string name="pass">password</string>
+    <string name="email">email</string>
+    <string name="nama">nama</string>
 </resources>
