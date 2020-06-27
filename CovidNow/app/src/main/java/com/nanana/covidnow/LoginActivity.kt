@@ -21,15 +21,17 @@ class LoginActivity : AppCompatActivity() {
 
         progressBar.visibility = View.GONE
 
+        register.setOnClickListener {
+            startActivity(Intent(this, RegisterActivity::class.java))
+            finish()
+        }
+
         login.setOnClickListener{
-            startActivityForResult(
-                AuthUI.getInstance()
-                    .createSignInIntentBuilder()
-                    .setAvailableProviders(listOf(AuthUI.IdpConfig.GoogleBuilder().build()))
-                    .setIsSmartLockEnabled(false)
-                    .build(),
-                RC_SIGN_IN)
-            progressBar.visibility = View.VISIBLE
+            loginWithEmail()
+        }
+
+        login_google.setOnClickListener {
+            loginWithGoogle()
         }
         auth = FirebaseAuth.getInstance()
 
@@ -38,6 +40,36 @@ class LoginActivity : AppCompatActivity() {
             intent = Intent(applicationContext, MainActivity::class.java)
             startActivity(intent)
             finish()
+        }
+    }
+
+    private fun loginWithGoogle(){
+        startActivityForResult(
+            AuthUI.getInstance()
+                .createSignInIntentBuilder()
+                .setAvailableProviders(listOf(AuthUI.IdpConfig.GoogleBuilder().build()))
+                .setIsSmartLockEnabled(false)
+                .build(),
+            RC_SIGN_IN)
+        progressBar.visibility = View.VISIBLE
+    }
+
+    private fun loginWithEmail(){
+        var email = et_email.text.toString()
+        var pass = et_password.text.toString()
+
+        if (!email.isEmpty() && !pass.isEmpty()){
+            progressBar.visibility = View.VISIBLE
+            auth?.signInWithEmailAndPassword(email, pass)!!.addOnCompleteListener(this) {
+                if (it.isSuccessful){
+                    startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                    finish()
+                }else{
+                    tampilToast(this@LoginActivity, "Login gagal" +it.exception.toString())
+                }
+            }
+        }else{
+            tampilToast(this, "masukkan email/password")
         }
     }
 

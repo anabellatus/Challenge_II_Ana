@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="16dp"
     tools:context=".fragment.AboutFragment">
 
-
     <androidx.cardview.widget.CardView
         android:id="@+id/bt_kasus"
-        app:cardCornerRadius="8dp"
         android:layout_width="match_parent"
         android:layout_height="90dp"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp">
+        android:layout_marginBottom="8dp"
+        app:cardCornerRadius="8dp">
 
         <View
             android:layout_width="15dp"
@@ -40,11 +39,11 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/bt_rs"
-        app:cardCornerRadius="8dp"
         android:layout_width="match_parent"
         android:layout_height="90dp"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp">
+        android:layout_marginBottom="8dp"
+        app:cardCornerRadius="8dp">
 
         <View
             android:layout_width="15dp"
@@ -70,11 +69,11 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/bt_hotline"
-        app:cardCornerRadius="8dp"
         android:layout_width="match_parent"
         android:layout_height="90dp"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp">
+        android:layout_marginBottom="8dp"
+        app:cardCornerRadius="8dp">
 
         <View
             android:layout_width="15dp"
@@ -100,11 +99,11 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/bt_gejala"
-        app:cardCornerRadius="8dp"
         android:layout_width="match_parent"
         android:layout_height="90dp"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp">
+        android:layout_marginBottom="8dp"
+        app:cardCornerRadius="8dp">
 
         <View
             android:layout_width="15dp"
@@ -128,5 +127,11 @@
 
     </androidx.cardview.widget.CardView>
 
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="logout"
+        />
 
 </LinearLayout>
