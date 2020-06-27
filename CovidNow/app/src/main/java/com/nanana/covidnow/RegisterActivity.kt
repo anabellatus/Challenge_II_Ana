@@ -7,12 +7,11 @@ import android.view.View
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.nanana.covidnow.data.UserModel
 import com.nanana.covidnow.util.tampilToast
 import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : AppCompatActivity() {
-
-    private val TAG = "CreateAccountActivity"
 
     private var mDatabase: FirebaseDatabase? = null
     private var auth: FirebaseAuth? = null
@@ -47,7 +46,9 @@ class RegisterActivity : AppCompatActivity() {
                         progressBar.visibility = View.GONE
                         val user = auth?.currentUser
                         val uid = user!!.uid
-                        ref.child(uid).child("Name").push().setValue(nama)
+//                        ref.child(uid).child("Name").push().setValue(nama)
+                        val userData = UserModel(nama, email, "", uid)
+                        ref.child(uid).push().setValue(userData)
                         startActivity(Intent(this@RegisterActivity, MainActivity::class.java))
                         finish()
                         tampilToast(this, "Register sukses")

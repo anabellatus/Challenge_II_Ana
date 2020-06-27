@@ -21,27 +21,32 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/et_card"
         android:background="@drawable/bg_corner"
+        android:layout_marginTop="16dp"
         android:text="@string/login"
         android:textColor="@color/white" />
 
-    <Button
-        android:id="@+id/login_google"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/login"
-        android:background="@drawable/bg_corner"
-        android:text="Google"
-        android:textColor="@color/white" />
-
-    <Button
+    <LinearLayout
         android:id="@+id/register"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/login_google"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/bg_corner"
-        android:text="register"
-        android:textColor="@color/white" />
+        android:orientation="horizontal"
+        android:layout_below="@id/login"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:fontFamily="monospace"
+            android:text="@string/belum_punya_akun"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="@string/daftar_disini"/>
+
+    </LinearLayout>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/et_card"
@@ -56,8 +61,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:layout_marginBottom="16dp"
             android:paddingHorizontal="16dp"
-            android:paddingVertical="20dp">
+            android:paddingVertical="30dp">
 
             <EditText
                 android:id="@+id/et_email"
@@ -82,15 +88,40 @@
         android:id="@+id/logo"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_above="@id/logo_text"
+        android:layout_above="@id/login_title"
         android:layout_centerHorizontal="true"
         app:srcCompat="@drawable/logo_only_smkcoding" />
 
-    <ImageView
-        android:id="@+id/logo_text"
-        android:layout_width="200dp"
-        android:layout_height="100dp"
+    <TextView
+        android:id="@+id/login_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
         android:layout_above="@id/et_card"
         android:layout_centerHorizontal="true"
-        app:srcCompat="@drawable/logo_smkcoding" />
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/user_login"
+        android:textColor="@color/black"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/or"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:layout_below="@id/register"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/atau_login_dengan"/>
+
+    <ImageView
+        android:id="@+id/login_google"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/or"
+        android:src="@drawable/google_logo"/>
+
 </RelativeLayout>

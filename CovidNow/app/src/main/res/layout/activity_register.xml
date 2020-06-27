@@ -21,6 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/et_card"
+        android:layout_marginTop="16dp"
         android:background="@drawable/bg_corner"
         android:text="Register"
         android:textColor="@color/white" />
@@ -29,15 +30,15 @@
         android:id="@+id/et_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="8dp"
+        app:cardCornerRadius="10dp"
         android:elevation="5dp"
         android:layout_centerInParent="true"
-        android:layout_marginVertical="16dp">
+        android:layout_marginVertical="20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingVertical="20dp"
+            android:paddingVertical="30dp"
             android:paddingHorizontal="16dp"
             android:orientation="vertical">
 
@@ -72,16 +73,22 @@
         android:id="@+id/logo"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_above="@id/logo_text"
+        android:layout_marginBottom="16dp"
+        android:layout_above="@id/register_title"
         android:layout_centerHorizontal="true"
         app:srcCompat="@drawable/logo_only_smkcoding" />
 
-    <ImageView
-        android:id="@+id/logo_text"
-        android:layout_width="200dp"
-        android:layout_height="100dp"
-        android:layout_above="@id/et_card"
+    <TextView
+        android:id="@+id/register_title"
+        android:layout_width="wrap_content"
         android:layout_centerHorizontal="true"
-        app:srcCompat="@drawable/logo_smkcoding" />
+        android:textColor="@color/black"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_above="@id/et_card"
+        android:fontFamily="monospace"
+        android:textSize="30sp"
+        android:layout_height="wrap_content"
+        android:text="@string/user_register"/>
 
 </RelativeLayout>

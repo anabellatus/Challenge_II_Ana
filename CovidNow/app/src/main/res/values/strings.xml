@@ -223,4 +223,9 @@
     <string name="pass">password</string>
     <string name="email">email</string>
     <string name="nama">nama</string>
+    <string name="user_register">User Register</string>
+    <string name="user_login">User Login</string>
+    <string name="belum_punya_akun">Belum punya akun ?</string>
+    <string name="daftar_disini">Daftar disini</string>
+    <string name="atau_login_dengan">atau login dengan :</string>
 </resources>
