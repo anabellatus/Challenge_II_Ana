@@ -35,7 +35,7 @@ class HotlineAdapter ( private val context: Context, private var list: List<Hotl
     class ViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView), LayoutContainer {
         fun bindItem(item: HotlineModel) {
             nama.text = item.nama
-            nomor.text = item.nomor
+            nomor.text = item.nomor.toString()
         }
     }
 

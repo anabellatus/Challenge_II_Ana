@@ -22,6 +22,6 @@ interface GejalaDao {
     @Delete()
     suspend fun delete(gejala: GejalaModel)
 
-    @Query("DELETE FROM rs")
+    @Query("DELETE FROM gejala")
     suspend fun deleteAll()
 }

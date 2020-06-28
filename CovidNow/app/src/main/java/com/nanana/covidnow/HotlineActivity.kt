@@ -56,9 +56,9 @@ class HotlineActivity: AppCompatActivity(), HotlineAdapter.dataListener  {
                 dataHotline = ArrayList()
                 for (snapshot in dataSnapshot.children) {
 
-                    val rs = snapshot.getValue(HotlineModel::class.java)
-                    rs?.key = (snapshot.key!!)
-                    dataHotline.add(rs!!)
+                    val hotline = snapshot.getValue(HotlineModel::class.java)
+                    hotline?.key = (snapshot.key!!).toString()
+                    dataHotline.add(hotline!!)
                 }
                 viewModel.insertAll(dataHotline)
 
@@ -81,6 +81,6 @@ class HotlineActivity: AppCompatActivity(), HotlineAdapter.dataListener  {
             Toast.makeText(this@HotlineActivity, data!!.key!!.toString(), Toast.LENGTH_LONG).show()
         }
     }
-    }
+
 
 }
