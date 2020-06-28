@@ -23,10 +23,9 @@ class RsActivity : AppCompatActivity(), RsAdapter.dataListener {
     lateinit var auth: FirebaseAuth
 //    lateinit var dataTeman : ArrayList<RSModel>
 
-    var dataTeman: MutableList<RSModel> = ArrayList()
+    var dataRs: MutableList<RSModel> = ArrayList()
     private val viewModel by viewModels<RSActivityViewModel>()
     private var adapter: RsAdapter? = null
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +34,7 @@ class RsActivity : AppCompatActivity(), RsAdapter.dataListener {
         getData()
 
         rv_rs.layoutManager = LinearLayoutManager(this)
-        adapter = RsAdapter(this, dataTeman)
+        adapter = RsAdapter(this, dataRs)
         rv_rs.adapter = adapter
         adapter?.listener = this
 
@@ -55,32 +54,21 @@ class RsActivity : AppCompatActivity(), RsAdapter.dataListener {
         auth = FirebaseAuth.getInstance()
         val getUserID: String = auth.currentUser?.uid.toString()
         ref  =FirebaseDatabase.getInstance().getReference()
-        ref.child(getUserID).child("Teman").addValueEventListener(object : ValueEventListener{
+        ref.child("hospitals").addValueEventListener(object : ValueEventListener{
+//        ref.child(getUserID).child("Teman").addValueEventListener(object : ValueEventListener{
             override fun onCancelled(p0: DatabaseError) {
                 tampilToast(this@RsActivity, "Database Error yaa...")
             }
 
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                dataTeman = ArrayList()
+                dataRs = ArrayList()
                 for (snapshot in dataSnapshot.children) {
 
-                    val teman = snapshot.getValue(RSModel::class.java)
-                    teman?.key = (snapshot.key!!)
-                    dataTeman.add(teman!!)
+                    val rs = snapshot.getValue(RSModel::class.java)
+                    rs?.key = (snapshot.key!!)
+                    dataRs.add(rs!!)
                 }
-                viewModel.insertAll(dataTeman)
-
-//                dataTeman = java.util.ArrayList<RSModel>()
-//                for(snapshot in dataSnapshot.children) {
-//                    val teman = snapshot.getValue(RSModel::class.java)
-//
-//                    teman?.key= (snapshot.key!!)
-//                    dataTeman.add(teman!!)
-//                }
-//                rv_rs.layoutManager = LinearLayoutManager(this@RsActivity)
-//                rv_rs.adapter = RsAdapter(this@RsActivity, dataTeman)
-//
-//                tampilToast(this@RsActivity, "Data Berhasil Dimuat")
+                viewModel.insertAll(dataRs)
 
             }
         })
@@ -91,8 +79,8 @@ class RsActivity : AppCompatActivity(), RsAdapter.dataListener {
         auth = FirebaseAuth.getInstance()
         val getUserID: String = auth?.getCurrentUser()?.getUid().toString()
         if (ref != null) {
-            ref.child(getUserID)
-                .child("Teman")
+            ref.child("hospitals")
+//                .child("Teman")
                 .child(data?.key!!.toString())
                 .removeValue()
                 .addOnSuccessListener {

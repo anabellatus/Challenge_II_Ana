@@ -48,7 +48,7 @@ class AddRSActivity : AppCompatActivity() {
             tampilToast(this, "Data tidak boleh ada yang kosong")
         }else{
             val rs = RSModel(getNama, getAlamat, getTelp, "")
-            ref.child(getUserID).child("Teman").push().setValue(rs).addOnCompleteListener {
+            ref.child("hospitals").push().setValue(rs).addOnCompleteListener {
                 tampilToast(this, "Data Berhasil Disimpan")
                 nama.setText("")
                 alamat.setText("")

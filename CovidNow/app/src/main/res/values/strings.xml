@@ -39,6 +39,10 @@
     <string name="title_gejala">Gejala Covid-19</string>
     <string name="search">Search</string>
 
+    <string name="footer_gejala">Segera cari bantuan medis jika Anda mengalami gejala \nserius. Selalu hubungi dokter atau fasilitas kesehatan yang ingin Anda tuju sebelum mengunjunginya.
+        \n\nOrang dengan gejala ringan yang dinyatakan sehat harus melakukan perawatan mandiri di rumah.
+        \n\nRata-rata gejala akan muncul 5–6 hari setelah seseorang pertama kali terinfeksi virus ini, tetapi bisa juga 14 hari setelah terinfeksi.</string>
+
     <string name="hotline">
         "1. Kota Depok 112 dan 119"\n
         "2. Kabupaten Majalengka 112"\n
@@ -231,4 +235,8 @@
     <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
     <string name="default_notification_channel_name" translatable="true">Covid Now</string>
     <string name="fcm_message">FCM Message</string>
+    <string name="sub_text_gejala">Masing-masing orang memiliki respons yang berbeda terhadap COVID-19. Sebagian besar orang yang terpapar virus ini akan mengalami gejala ringan hingga sedang dan akan pulih tanpa perlu dirawat di rumah sakit.</string>
+    <string name="gejala_umum_title">Gejala yang paling umum :</string>
+    <string name="gejala_tidak_umum">Gejala yang sedikit tidak umum :</string>
+    <string name="gejala_serius">Gejala serius :</string>
 </resources>
