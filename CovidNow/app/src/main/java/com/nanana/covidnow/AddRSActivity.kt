@@ -47,14 +47,14 @@ class AddRSActivity : AppCompatActivity() {
         if (getNama.isEmpty() && getNama.isEmpty() && getTelp.isEmpty() && getAlamat.isEmpty()) {
             tampilToast(this, "Data tidak boleh ada yang kosong")
         }else{
-            val teman = RSModel(getNama, getAlamat, getTelp, "")
-            ref.child(getUserID).child("Teman").push().setValue(teman).addOnCompleteListener {
+            val rs = RSModel(getNama, getAlamat, getTelp, "")
+            ref.child(getUserID).child("Teman").push().setValue(rs).addOnCompleteListener {
                 tampilToast(this, "Data Berhasil Disimpan")
                 nama.setText("")
                 alamat.setText("")
                 telp.setText("")
-                teman.key = ref.key.toString()
-                viewModel.addData(teman)
+                rs.key = ref.key.toString()
+                viewModel.addData(rs)
             }
 
             val intent = Intent (this, MainActivity::class.java)
