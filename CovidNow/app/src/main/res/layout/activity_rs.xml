@@ -21,13 +21,21 @@
             android:layout_margin="16dp"
             android:fontFamily="monospace"
             android:layout_centerHorizontal="true"
-            android:text="Daftar Rumah Sakit Rujukan"
+            android:text="@string/rs_title"
             android:textColor="@color/black"
             android:textSize="18sp" />
 
+        <TextView
+            android:id="@+id/sub_text"
+            android:layout_below="@id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/rs_subtext"
+            />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_rs"
-            android:layout_below="@+id/title"
+            android:layout_below="@+id/sub_text"
             android:layout_width="match_parent"
             tools:listitem="@layout/rs_item"
             android:layout_height="match_parent"/>

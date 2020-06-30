@@ -8,7 +8,8 @@ data class RSModel(
     var nama: String,
     var alamat: String,
     var telp: String,
+    var provinsi: String,
     @PrimaryKey var key: String
 ){
-    constructor() : this("", "", "", "" )
+    constructor() : this("", "", "", "", "" )
 }

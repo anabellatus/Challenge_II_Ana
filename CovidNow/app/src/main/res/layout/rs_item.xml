@@ -26,4 +26,11 @@
         android:textSize="16sp"
         android:text="telp"/>
 
+    <TextView
+        android:id="@+id/prov"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="Provinsi"/>
+
 </LinearLayout>

@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.nanana.covidnow.dao.RSDao
 import com.nanana.covidnow.data.RSModel
 
-@Database(entities = arrayOf(RSModel::class), version = 1, exportSchema = false)
+@Database(entities = arrayOf(RSModel::class), version = 2, exportSchema = false)
 public abstract class RSDatabase: RoomDatabase() {
     abstract fun rsDao(): RSDao
 

@@ -239,4 +239,6 @@
     <string name="gejala_umum_title">Gejala yang paling umum :</string>
     <string name="gejala_tidak_umum">Gejala yang sedikit tidak umum :</string>
     <string name="gejala_serius">Gejala serius :</string>
+    <string name="rs_title">Daftar Rumah Sakit Rujukan</string>
+    <string name="rs_subtext">Berikut adalah rumah sakit rujukan pasien virus corona di berbagai provinsi di Indonesia seperti yang ditetapkan oleh pemerintah :</string>
 </resources>

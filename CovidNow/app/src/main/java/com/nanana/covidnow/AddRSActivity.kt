@@ -12,6 +12,11 @@ import com.nanana.covidnow.data.RSModel
 import com.nanana.covidnow.util.tampilToast
 import com.nanana.covidnow.viewmodel.RSViewModel
 import kotlinx.android.synthetic.main.activity_add_r_s.*
+import kotlinx.android.synthetic.main.activity_add_r_s.alamat
+import kotlinx.android.synthetic.main.activity_add_r_s.nama
+import kotlinx.android.synthetic.main.activity_add_r_s.prov
+import kotlinx.android.synthetic.main.activity_add_r_s.telp
+import kotlinx.android.synthetic.main.rs_item.*
 
 class AddRSActivity : AppCompatActivity() {
 
@@ -39,15 +44,16 @@ class AddRSActivity : AppCompatActivity() {
     }
 
     fun prosesSave(){
-        val getNama: String = nama.getText().toString()
-        val getAlamat: String = alamat.getText().toString()
-        val getTelp: String = telp.getText().toString()
-        val getUserID: String = auth?.getCurrentUser()?.getUid().toString()
+        val getNama: String = nama.text.toString()
+        val getAlamat: String = alamat.text.toString()
+        val getTelp: String = telp.text.toString()
+        var getProv = prov.text.toString()
+        val getUserID: String = auth?.currentUser?.uid.toString()
 
         if (getNama.isEmpty() && getNama.isEmpty() && getTelp.isEmpty() && getAlamat.isEmpty()) {
             tampilToast(this, "Data tidak boleh ada yang kosong")
         }else{
-            val rs = RSModel(getNama, getAlamat, getTelp, "")
+            val rs = RSModel(getNama, getAlamat, getTelp, getProv, "")
             ref.child("hospitals").push().setValue(rs).addOnCompleteListener {
                 tampilToast(this, "Data Berhasil Disimpan")
                 nama.setText("")

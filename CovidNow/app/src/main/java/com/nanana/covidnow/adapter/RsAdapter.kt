@@ -50,6 +50,7 @@ class RsAdapter(
                         bundle.putString("dataNama", list.get(position).nama)
                         bundle.putString("dataTelp", list.get(position).telp)
                         bundle.putString("dataAlamat", list.get(position).alamat)
+                        bundle.putString("dataProvinsi", list.get(position).provinsi)
                         bundle.putString("getPrimaryKey", list.get(position).key)
                         val intent = Intent(view.context, UpdateActivity::class.java)
                         intent.putExtras(bundle)
@@ -60,8 +61,8 @@ class RsAdapter(
                         ref = FirebaseDatabase.getInstance().getReference()
                         val getUserID: String = auth?.getCurrentUser()?.getUid().toString()
                         if (ref != null) {
-                            ref.child(getUserID)
-                                .child("Teman")
+                            ref.child("hospitals")
+//                                .child("Teman")
                                 .child(list.get(position)?.key.toString())
                                 .removeValue()
                                 .addOnSuccessListener {

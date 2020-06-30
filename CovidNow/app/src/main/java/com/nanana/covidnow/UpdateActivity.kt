@@ -11,6 +11,9 @@ import com.nanana.covidnow.data.RSModel
 import com.nanana.covidnow.util.tampilToast
 import com.nanana.covidnow.viewmodel.RSUpdateViewModel
 import kotlinx.android.synthetic.main.activity_update.*
+import kotlinx.android.synthetic.main.activity_update.alamat
+import kotlinx.android.synthetic.main.activity_update.nama
+import kotlinx.android.synthetic.main.activity_update.telp
 
 class UpdateActivity : AppCompatActivity() {
 
@@ -23,7 +26,6 @@ class UpdateActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_update)
 
-        supportActionBar?.setTitle("Update Data")
         auth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance().reference
 
@@ -32,17 +34,19 @@ class UpdateActivity : AppCompatActivity() {
             var namaBaru = nama.text.toString()
             var alamatBaru = alamat.text.toString()
             var telpBaru = telp.text.toString()
+            var provBaru = prov.text.toString()
 
-            if (namaBaru.isEmpty() || alamatBaru.isEmpty() || telpBaru.isEmpty()) {
+            if (namaBaru.isEmpty() || alamatBaru.isEmpty() || telpBaru.isEmpty() || provBaru.isEmpty()) {
                 tampilToast(this@UpdateActivity, "Data tidak boleh ada yang kosong")
             } else {
-                val temanBaru = RSModel(namaBaru, alamatBaru, telpBaru, "")
+                val rsBaru = RSModel(namaBaru, alamatBaru, telpBaru, provBaru, "")
                 val getUserID: String = auth!!.currentUser!!.uid.toString()
                 val getKey: String = intent.getStringExtra("getPrimaryKey").toString()
-                database!!.child(getUserID).child("Teman")
-                    .child(getKey).setValue(temanBaru)
+                database!!.child("hospitals")
+//                    .child("Teman")
+                    .child(getKey).setValue(rsBaru)
                     .addOnCompleteListener {
-                        viewModel.updateData(temanBaru)
+                        viewModel.updateData(rsBaru)
                         tampilToast(this@UpdateActivity, "Data Berhasil Disimpan")
                         finish()
                     }
@@ -54,9 +58,11 @@ class UpdateActivity : AppCompatActivity() {
         val getNama: String  = intent.getStringExtra("dataNama").toString()
         val getTelp: String  = intent.extras!!.getString("dataTelp").toString()
         val getAlamat: String  = intent.extras!!.getString("dataAlamat").toString()
+        val getProv: String  = intent.extras!!.getString("dataProvinsi").toString()
         nama.setText(getNama)
         telp.setText(getTelp)
         alamat.setText(getAlamat)
+        prov.setText(getProv)
         Toast.makeText(this, getNama, Toast.LENGTH_SHORT).show()
     }
 }
