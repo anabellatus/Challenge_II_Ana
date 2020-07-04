@@ -76,16 +76,22 @@ class LoginActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (requestCode == RC_SIGN_IN){
-            if (resultCode == Activity.RESULT_OK){
-                tampilToast(this, "Login Berhasil")
-                intent = Intent(applicationContext, MainActivity::class.java)
-                startActivity(intent)
-                finish()
-            }else{
-                progressBar.visibility = View.GONE
-                tampilToast(this, "Login Dibatalkan")
-            }
+            try {
+
+                if (requestCode == RC_SIGN_IN) {
+                    if (resultCode == Activity.RESULT_OK) {
+                        tampilToast(this, "Login Berhasil")
+                        intent = Intent(applicationContext, MainActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    } else {
+                        progressBar.visibility = View.GONE
+                        tampilToast(this, "Login Dibatalkan")
+                    }
+                }
+
+            }catch (e: Exception){
+                tampilToast(this, e.message.toString())
         }
     }
 }
